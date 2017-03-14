@@ -21,8 +21,9 @@ items:
         - ReadWriteOnce
       capacity:
         storage: 100Mi
-      gcePersistentDisk:
-        pdName: jenkins
+
+      awsElasticBlockStore:
+        volumeID: "vol-0d93b74edd3c946a8"
         fsType: ext4
 
   - apiVersion: "v1"
@@ -54,7 +55,7 @@ items:
         spec:
           containers:
             - name: "jenkins"
-              image: "jenkins:2.19.4-alpine"
+              image: "jenkins:2.32.2"
               ports:
                 - containerPort: 8080
                 - containerPort: 50000
